@@ -1,0 +1,6 @@
+{
+    "sketch": "ArañaRobot/Ara_aRobot/Ara_aRobot.ino",
+    "programmer": "AVR ISP",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328"
+}
