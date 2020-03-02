@@ -1,33 +1,30 @@
 /*
- Araña robot controlada por aplicacion Arduino bluetooth controller
+ Araña Robot controlada por aplicacion Arduino bluetooth controller
 *OJO = Calibrar todos los motores a 90 grados (en la mecánica)
-Fecha= /02/2020
+Fecha= 10/02/2020
+Autor= Brigitte Oviedo
 */
-#include <Servo.h> 
+#include <Servo.h> //Incluye la librerias necesarias para el servo
 Servo   Mano1;
 Servo   Base1;
 Servo   Codo1;
-
 Servo   Mano2;
 Servo   Base2; 
 Servo   Codo2; 
-
 Servo   Mano3;
 Servo   Base3;  
 Servo   Codo3;
-    
 Servo   Mano4;
 Servo   Base4;  
 Servo   Codo4;
 
-////Pines de los servos 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 int tiempo = 200;
 char estado;
 
 void setup()
  {
    Serial.begin(9600);
-
+  //Pines de los servos 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
    //Primera extremidad
     Mano1.attach(2);
     Base1.attach(3);  
@@ -93,7 +90,7 @@ void loop(){
       }
 }
 
-//Funcion para que suba y baje la araña
+//Secuencia para que suba y baje la araña
 void subir_bajar(){         
   condicion_inicial();
   delay(600);
@@ -142,7 +139,7 @@ void bajar(){
     Base4.write(90);
 }
 
-//Funion caminar hacia adelante
+//Funcion caminar hacia adelante
 void Adelante()
 {
   
@@ -190,7 +187,6 @@ void Derecha(){
     Codo1.write(90);
     Mano1.write(90);
     delay(tiempo);
-    
     
     Codo4.write(60);
     Base4.write(130);
@@ -245,7 +241,7 @@ void Izquierda(){
 
 //////////////////////////////////////////////////
 //Sub-Funciones para Caminar hacia adelante
-////////////////////////////////
+//////////////////////////////////////////////////
 void BaseAdelante()
 {
     Base1.write(110); //70
@@ -295,11 +291,10 @@ void MoverPata2f()
    
     delay(tiempo);   
 }
-//////////////////////////////////
 
-//Funcion caminar hacia atras
+//////////////////////////////////
 //Sub-Funciones para Caminar hacia atras
-////////////////////////////////
+//////////////////////////////////
 void BaseAtras(){
     Base3.write(50); //70
     Base4.write(130);  //90
@@ -344,4 +339,4 @@ void MoverPata4()
     Mano4.write(90);
     delay(tiempo);   
 }
-//////////////////////////////
+
