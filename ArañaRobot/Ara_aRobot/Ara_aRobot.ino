@@ -52,46 +52,48 @@ void setup()
    delay(2000);
  }
  
-void loop(){
-    if(Serial.available()>0){ // Lee el bluetooth y almacena en estado
-        estado = Serial.read(); //Le lo mandado por el Celular
+void loop()
+{
+  if(Serial.available()>0){ // Lee el bluetooth y almacena en estado
+      estado = Serial.read(); //Le lo mandado por el Celular
 
-        if(estado=='f'){     //Camina hacia adelante   
-          for (int i=0;i<2;i++){
-          Adelante();
-          }
-          condicion_inicial();
-        }
-        if(estado=='t'){     //Camina hacia atras  
-          for (int i=0;i<2;i++){
-          Atras();
-          }
-          condicion_inicial();
-        }
-        if(estado=='d'){     //Gira hacia la derecha 
-          for (int i=0;i<2;i++){
-          Derecha();
-          }
-        }
-        if(estado=='i'){     //Gira hacia la izquierda
-        for (int i=0;i<2;i++){
-          Izquierda();
-          }
-        }
-        if(estado=='x'){     //Sube y baja 3 veces
-          for (int i=0;i<=2;i++){
-            subir_bajar();  
-          }
-        }
-        if(estado=='o'){     //Sube y baja 3 veces
-            condicion_inicial();  
-        }
-    
+    if(estado=='f'){     //Camina hacia adelante   
+      for (int i=0;i<2;i++){
+      Adelante();
+      }
+      condicion_inicial();
     }
+    if(estado=='t'){     //Camina hacia atras  
+      for (int i=0;i<2;i++){
+      Atras();
+      }
+      condicion_inicial();
+    }
+    if(estado=='d'){     //Gira hacia la derecha 
+      for (int i=0;i<2;i++){
+      Derecha();
+      }
+    }
+    if(estado=='i'){     //Gira hacia la izquierda
+    for (int i=0;i<2;i++){
+      Izquierda();
+      }
+    }
+    if(estado=='x'){     //Sube y baja 3 veces
+      for (int i=0;i<=2;i++){
+        subir_bajar();  
+      }
+    }
+    if(estado=='o'){     //Sube y baja 3 veces
+        condicion_inicial();  
+    }
+
+  }
 }
 
 //Secuencia para que suba y baje la araña
-void subir_bajar(){         
+void subir_bajar()
+{         
   condicion_inicial();
   delay(600);
   bajar();
@@ -120,7 +122,8 @@ void condicion_inicial()
 }
 
 //Funcion para que baje
-void bajar(){         
+void bajar()
+{         
   Codo1.write(130);
   Mano1.write(130);
   Base1.write(90); 

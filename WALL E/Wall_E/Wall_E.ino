@@ -1,6 +1,7 @@
 /*
 Wall_E 
 Descripcion= Falta implementar el diseño mecanico 
+puede funcionar para un carrito con el sensor de ultrasonido
 Fecha= 12/02/2020
 Autor= Brigitte Oviedo
 */
