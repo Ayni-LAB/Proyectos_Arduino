@@ -1,5 +1,5 @@
 /*
- Araña Robot controlada por aplicacion Arduino bluetooth controller
+Araña Robot controlada por aplicacion Arduino bluetooth controller
 *OJO = Calibrar todos los motores a 90 grados (en la mecánica)
 Fecha= 10/02/2020
 Autor= Brigitte Oviedo
@@ -50,8 +50,8 @@ void setup()
    //Se estabiliza la araña
    condicion_inicial();
    delay(2000);
- 
  }
+ 
 void loop(){
     if(Serial.available()>0){ // Lee el bluetooth y almacena en estado
         estado = Serial.read(); //Le lo mandado por el Celular
@@ -278,7 +278,7 @@ void MoverPata3f()
   Codo3.write(90);
   Mano3.write(90);
 
-  delay(tiempo);   
+  delay(tiempo);  
 }
 void MoverPata2f()
 {
