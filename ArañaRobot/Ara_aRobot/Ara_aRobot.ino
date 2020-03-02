@@ -1,6 +1,6 @@
 /*
 Araña Robot controlada por aplicacion Arduino bluetooth controller
-Importante = Calibrar todos los motores a 90 grados (en la mecánica)
+Importante = Calibrar todos los motores a 90 grados en la mecánica
 Fecha= 10/02/2020
 Autor= Brigitte Oviedo
 */
