@@ -1,8 +1,16 @@
+/*
+Brazo robotico controlado por aplicacion Arduino bluetooth controller
+Descripcion= Este codigo esta diseñado para un tipo de brazo robotico, el cual iene movimientos limitados. 
+Este brazo no pude estirrse de forma diagonal. El movimiento permitido para su mecania es en movimiento de L
+Fecha= 11/02/2020
+Autor= Brigitte Oviedo
+*/
 #include <Servo.h> // Librería Servo
 
-Servo PatasDelanteras; // Crear un objeto tipo Servo llamado PatasDelanteras
-Servo PatasTraseras; // Crear un objeto tipo Servo llamado PatasTraseras
-Servo Cola; // Crear un objeto tipo Servo llamado Cola
+//Nombrando los servos a trabajar
+Servo PatasDelanteras; 
+Servo PatasTraseras; 
+Servo Cola; 
 
 int ECHO = 3;  // ECHO al Arduino pin 3 de Arduino
 int TRIG = 2;  // TRIG al Arduino pin 2 de Arduino
@@ -41,25 +49,24 @@ void loop() {
     digitalWrite(13, 0);               // Pin 13 en bajo
     
 // Si la distancia esta en el rango de 1 a 10 el movil retrocedera y girara    
-   if (distancia <= 10 && distancia >= 1) 
-   {
-    Serial.println("Alerta.....");      // Imprime la palabra Alerta en el monitor serial
-           
-    // Codigo para retroceder 
-      PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
-      PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
-      Cola.write(); //Se ingresa el valor de "Angulo" en Cola
-      delay(400);
-                                 
-    // Codigo para girar
-      PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
-      PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
-      Cola.write(); //Se ingresa el valor de "Angulo" en Cola
-      delay(400);
-    }
+  if (distancia <= 10 && distancia >= 1) 
+  {
+  Serial.println("Alerta.....");      // Imprime la palabra Alerta en el monitor serial
+          
+  // Codigo para retroceder 
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cola.write(); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+                                
+  // Codigo para girar
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cola.write(); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+  }
 
 // Si la distancia se encuentra entre 10 y 500 el movil avanzara en linea recta
-
 // Codigo para que el movil avance en linea recta
   else{
       Serial.print(distancia);           // Imprime el valor de la distancia en el monitor serial
