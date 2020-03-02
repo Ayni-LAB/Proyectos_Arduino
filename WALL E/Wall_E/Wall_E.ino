@@ -1,4 +1,9 @@
-
+/*
+Wall_E 
+Descripcion= Falta implementar el diseño mecanico 
+Fecha= 12/02/2020
+Autor= Brigitte Oviedo
+*/
 int IN1 = 4;    // Input1 conectada al pin 4 de Arduino
 int IN2 = 5;    // Input2 conectada al pin 5 de Arduino
 int IN3 = 7;    // Input3 conectada al pin 7 de Arduino
