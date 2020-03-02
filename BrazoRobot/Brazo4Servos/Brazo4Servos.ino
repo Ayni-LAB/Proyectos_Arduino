@@ -1,5 +1,5 @@
 /*
-Brazo robotico controlado por aplicacion Arduino bluetooth controller
+Brazo robótico controlado por aplicacion Arduino bluetooth controller
 Descripcion= Este codigo esta diseñado para un tipo de brazo robotico, el cual iene movimientos limitados. 
 Este brazo no pude estirrse de forma diagonal. El movimiento permitido para su mecania es en movimiento de L
 Fecha= 13/02/2020
