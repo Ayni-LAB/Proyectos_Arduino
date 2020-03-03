@@ -67,11 +67,10 @@ Tomar en cuenta que dos de los 4 servomotores se encuentran a una misma altura.
 ##### Piezas para impresion 3D
 
 Se imprime 1 vez cada uno:
-[Soporte dos servos](BrazoRobot/Piezas/EBA_01.00.001.STL).
 
-[Accionamiento servo derecho](BrazoRobot/Piezas/EBA_01.00.002_vertical_drive_arm.STL).
-
-[Accionamiento brazo delantero](BrazoRobot/Piezas/EBA_01.00.004_forward_drive_arm.STL).
+[Soporte dos servos\n](BrazoRobot/Piezas/EBA_01.00.001.STL).
+[Accionamiento servo derecho\n](BrazoRobot/Piezas/EBA_01.00.002_vertical_drive_arm.STL).
+[Accionamiento brazo delantero\n](BrazoRobot/Piezas/EBA_01.00.004_forward_drive_arm.STL).
 
 [Brazo horizontal](BrazoRobot/Piezas/EBA_01.00.005_horizontal_arm.STL).
 
