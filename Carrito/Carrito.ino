@@ -1,8 +1,8 @@
 /*
-Wall_E 
+Carrito evita Obstaculos
 Descripcion= Falta implementar el diseño mecánico 
 puede funcionar para un carrito con el sensor de ultrasonido
-Fecha= 12/02/2020
+Fecha= 03/03/2020
 Autor= Brigitte Oviedo
 */
 int IN1 = 4;    // Input1 conectada al pin 4 de Arduino
@@ -14,17 +14,17 @@ int TRIG = 2;  // TRIG al Arduino pin 2 de Arduino
 long duracion, distancia; 
 
 void setup() {                
-  Serial.begin (9600);       // inicializa el puerto serial
-  pinMode (IN1, OUTPUT);     // Inicializa el pin 4  como salida digital.
-  pinMode (IN2, OUTPUT);     // Inicializa el pin 5 como salida digital.
-  
-  pinMode (IN3, OUTPUT);     // Inicializa el pin 7 como salida digital.
-  pinMode (IN4, OUTPUT);     // Inicializa el pin 8 como salida digital.
+    Serial.begin (9600);       // inicializa el puerto serial
+    pinMode (IN1, OUTPUT);     // Inicializa el pin 4  como salida digital.
+    pinMode (IN2, OUTPUT);     // Inicializa el pin 5 como salida digital.
+    
+    pinMode (IN3, OUTPUT);     // Inicializa el pin 7 como salida digital.
+    pinMode (IN4, OUTPUT);     // Inicializa el pin 8 como salida digital.
 
-  pinMode (ECHO, INPUT);     // Inicializa el pin 11 como entrada (ECHO)
-  pinMode (TRIG, OUTPUT);    // Inicializa el pin 12 como salida  (TRIGER)
-  pinMode(13, OUTPUT);       // Inicializa el pin 13 como salida
- digitalWrite(TRIG, LOW);//Inicializamos el pin con 0  
+    pinMode (ECHO, INPUT);     // Inicializa el pin 11 como entrada (ECHO)
+    pinMode (TRIG, OUTPUT);    // Inicializa el pin 12 como salida  (TRIGER)
+    pinMode(13, OUTPUT);       // Inicializa el pin 13 como salida
+    digitalWrite(TRIG, LOW);//Inicializamos el pin con 0  
 }
   
 void loop() {
