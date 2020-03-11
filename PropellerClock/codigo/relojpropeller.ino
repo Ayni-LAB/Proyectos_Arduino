@@ -1,5 +1,6 @@
-// hobbyprojects
+// fecha: //2020
 // ArduinoNanoPropellerLEDAnalogClock20190403A
+
 
 int LED1 = 2;
 int LED2 = 3;
