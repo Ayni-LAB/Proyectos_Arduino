@@ -103,7 +103,7 @@ Se imprime 2 veces cada uno:
 
 #### Esquematico
 <p align="center">
-  <img width="750" height="450" src="Carrito/esqCarrito.png">
+  <img width="650" height="450" src="Carrito/esqCarrito.png">
 </p>
 
 ## Lagarto Robot
@@ -142,7 +142,7 @@ Se imprime 4 veces:
 
 #### Esquematico
 <p align="center">
-  <img width="750" height="450" src="BrazoRobot/EsquematicoBrazo.png">
+  <img width="600" height="450" src="LagartoRobot/EsquematicoLag.png">
 </p>
 
 ## Propeller Clock
@@ -182,7 +182,7 @@ Se imprime 4 veces:
 
 #### Esquematico
 <p align="center">
-  <img width="750" height="450" src="WALL E/esquematicoWall_E.png">
+  <img width="650" height="450" src="WALL E/esquematicoWall_E.png">
 </p>
 
 
