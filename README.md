@@ -1,4 +1,4 @@
-# PROYECTOS EN ARDUINO
+# PROYECTOS CON ARDUINO
 Los siguientes proyectos estan Basados en codigo de Arduino.
 
 ## Araña Robot
@@ -85,5 +85,105 @@ Se imprime 2 veces cada uno:
 <p align="center">
   <img width="750" height="450" src="BrazoRobot/EsquematicoBrazo.png">
 </p>
+
+
+## Carrito evita choques
+
+
+#### Lista de Materiales
+
+|  Electrónica | Cantidad |  Mecánica  | Cantidad |
+| :------------ | --------: | :---------  | --------: |
+| Motor DC  |    2    | Ruedas | 2 |
+| Arduino Mega |     1    | Base de acrilico| 2 |
+| Jumpers |    x    | Rueda loca| 2 |
+| HC-SR04 |    1    |  Caja de pila 9v   |  1  |
+| L298 |     1  |  | |
+| Pila 9v |     1    |  |  |
+
+#### Esquematico
+<p align="center">
+  <img width="750" height="450" src="Carrito/esqCarrito.png">
+</p>
+
+## Lagarto Robot
+
+
+#### Lista de Materiales
+
+|  Electrónica | Cantidad |  Mecánica  | Cantidad |
+| :------------ | --------: | :---------  | --------: |
+| Servo Motor  |    3    |Piezas en Acrilico| x |
+| Arduino nano |     1    | |  |
+| Jumpers |    x    | | |
+| shield Nano |    1    |  |  | 
+| Porta pilas 9v |     1  |     |   |
+| Pila 9v |     1    |  |   |
+
+#### Piezas para impresion 3D
+
+Se imprime 1 vez cada uno:
+-[Base Cola](LagartoRobot/Piezas/base_cola.stl).
+-[Cabeza](LagartoRobot/Piezas/ccabeza_lagarto.stl).
+-[Cola](LagartoRobot/Piezas/cola.stl).
+-[Cuerpo](LagartoRobot/Piezas/cuerpo_lagarto.stl).
+-[Nariz](LagartoRobot/Piezas/nariz.stl).
+-[Sensor](LagartoRobot/Piezas/sensor_lagarto.stl).
+-[Soporte de Cola](LagartoRobot/Piezas/soporte_cola_v2.stl).
+-[Union pata-cola](LagartoRobot/Piezas/union_pata_cola.stl).
+
+Se imprime 2 veces:
+
+-[Base Pata](LagartoRobot/Piezas_de_Lagarto/base_pata.stl).
+
+Se imprime 4 veces:
+
+-[Pata](LagartoRobot/Piezas/pata_v7.stl).
+
+#### Esquematico
+<p align="center">
+  <img width="750" height="450" src="BrazoRobot/EsquematicoBrazo.png">
+</p>
+
+## Propeller Clock
+
+
+#### Lista de Materiales
+
+|  Electrónica | Cantidad |  Mecánica  | Cantidad |
+| :------------ | --------: | :---------  | --------: |
+| Motor DC  |    1    | Baquelita de cobre | 1 |
+| LED verde |     5    | |  |
+| LED rojo |    11   | |  |
+| LED azul |    1    |    |  |
+| Espadines Hembra |   2  |  | |
+| Sensor Hall |     1    |  |  |
+| Espadines Macho |     5    |  |  |
+| Bateria 3.7V 240mA |     1    |  |  |
+
+#### Esquematico
+<p align="center">
+  <img width="750" height="450" src="PropellerClock/EsquematicoPropeller.png">
+</p>
+
+## Wall_E
+
+
+#### Lista de Materiales
+
+|  Electrónica | Cantidad |  Mecánica  | Cantidad |
+| :------------ | --------: | :---------  | --------: |
+| Motor DC  |    2    |  Caja de pila 9v | 1|
+| Arduino Mega |     1    | |  |
+| Jumpers |    x    | |  |
+| HC-SR04 |    1    |   |    |
+| L298 |     1  |  | |
+| Pila 9v |     1    |  |  |
+
+#### Esquematico
+<p align="center">
+  <img width="750" height="450" src="WALL E/esquematicoWall_E.png">
+</p>
+
 
 <!-- # Proyectosgit -Arduino -->

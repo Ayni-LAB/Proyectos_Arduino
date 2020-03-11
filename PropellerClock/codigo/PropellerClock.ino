@@ -1,9 +1,10 @@
 /*
 Reloj Propeller
-Fecha= 11/03/2020
+Fecha= 03/03/2020
 Autor= Brigitte Oviedo
 */
 
+//Nombrando los leds a trabajar
 int LED1 = 2;
 int LED2 = 3;
 int LED3 = 4;
@@ -26,14 +27,15 @@ int sensorPin = A0;
 unsigned int n,ADCvalue,propeller_posn;
 unsigned long previousTime = 0;
 
-byte hours = 12;    // set hours
-byte minutes = 15;  // set minutes
-byte seconds = 00;  // set seconds
+byte hours = 12;    // establecer horas
+byte minutes = 15;  // establecer minutos
+byte seconds = 00;  // establecer segundos
 
 int val;
 
 void setup() 
 {
+   //Leds
   pinMode(LED1,OUTPUT);  
   pinMode(LED2,OUTPUT);  
   pinMode(LED3,OUTPUT);  
@@ -53,12 +55,12 @@ void setup()
   
   pinMode(sensorPin,INPUT_PULLUP);   
   
-  if(hours == 12)
+  if(hours == 12){
   hours = 0;
+  }
 }
 
-void loop() 
-{
+void loop() {
     val = digitalRead(sensorPin);
     
     while (val == LOW)
@@ -71,68 +73,67 @@ void loop()
   {
      previousTime = previousTime + 1000;
      seconds = seconds+1;
-     if (seconds == 60)
-     {
+     if (seconds == 60){
         seconds = 0;
         minutes = minutes+1;
      }
-     if (minutes == 60)
-     {
+     if (minutes == 60){
         minutes = 0;
         hours = hours+1;
      }
-     if (hours == 12)
-     {
+     if (hours == 12){
         hours = 0;
      }   
   }  
   
-  propeller_posn=30;
-  n=0;
-  
-  while(n < 60)
-  {
-      
-  drawMinuteMarker();
+   propeller_posn=30;
+   n=0;
+   
+   while(n < 60){
+         
+   drawMinuteMarker();
 
-  if ((propeller_posn==0) || (propeller_posn==5) || (propeller_posn==10) || (propeller_posn==15) || (propeller_posn==20) || (propeller_posn==25) || (propeller_posn==30) || (propeller_posn==35) || (propeller_posn==40) || (propeller_posn==45) || (propeller_posn==50) || (propeller_posn==55))
-  drawHourMarker();
-  
-  if ((propeller_posn==0) || (propeller_posn==15) || (propeller_posn==30) || (propeller_posn==45))
-  drawQuarterMarker(); 
-  
-  if((propeller_posn == hours*5) || (( propeller_posn == 0 ) && (hours == 0)))
-  drawHoursHand();
-  
-  if(propeller_posn == minutes)
-  drawMinutesHand();   
-  
-  if(propeller_posn == seconds)
-  drawSecondsHand();
-  
-  delayMicroseconds(140);     // for LED pixel width   (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
-  
-  displayClear(); 
+   if ((propeller_posn==0) || (propeller_posn==5) || (propeller_posn==10) || (propeller_posn==15) || (propeller_posn==20) || (propeller_posn==25) || (propeller_posn==30) || (propeller_posn==35) || (propeller_posn==40) || (propeller_posn==45) || (propeller_posn==50) || (propeller_posn==55))
+   drawHourMarker();
+   
+   if ((propeller_posn==0) || (propeller_posn==15) || (propeller_posn==30) || (propeller_posn==45))
+   drawQuarterMarker(); 
+   
+   if((propeller_posn == hours*5) || (( propeller_posn == 0 ) && (hours == 0)))
+   drawHoursHand();
+   
+   if(propeller_posn == minutes)
+   drawMinutesHand();   
+   
+   if(propeller_posn == seconds)
+   drawSecondsHand();
+   
+   delayMicroseconds(140);     // para ancho de pixel del led (cambie el valor de acuerdo con la velocidad del motor. Aumente para baja velocidad, disminuya para motor de alta velocidad)
+   
+   displayClear(); 
 
-  drawInner_Circle();
- 
-  delayMicroseconds(600);   // for the gap between LED pixels/minutes markers  (change the value according to motor speed. Increase for low speed, decrease for high speed motor)
-  
-  n++;
-  propeller_posn++;
-  if(propeller_posn == 60)
-  propeller_posn=0;
+   drawInner_Circle();
+   
+   delayMicroseconds(600);   // para ancho de pixel del led / marcadores de minutos (cambie el valor de acuerdo con la velocidad del motor. Aumente para baja velocidad, disminuya para motor de alta velocidad)
+   
+   n++;
+   propeller_posn++;
+
+   if(propeller_posn == 60){
+      propeller_posn=0;
+      }
   }
   
     val = digitalRead(sensorPin);  
     
-    while (val == HIGH)
-    {
+    while (val == HIGH){
     val = digitalRead(sensorPin); 
     }     
 }
 
-//=========================
+//==============================
+//====Funciones de reloj========
+//==============================
 
 void displayClear()
   {
@@ -210,7 +211,7 @@ void displayClear()
   digitalWrite(LED8,HIGH);
   /*digitalWrite(LED9,HIGH);
   digitalWrite(LED10,HIGH);
-  digitalWrite(LED11,HIGH);  */
+  digitalWrite(LED11,HIGH); */
   }  
 
   void drawInner_Circle()
