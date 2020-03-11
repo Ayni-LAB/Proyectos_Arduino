@@ -21,7 +21,7 @@ Se pueden observar algunos principios básicos de movimiento en extremidades, de
 
 Se imprime 1 vez cada uno:
 
--[Cuerpo Inverior](ArañaRobot/Piezas/files/body_d.stl).
+-[Cuerpo Inferior](ArañaRobot/Piezas/files/body_d.stl).
 -[Cuerpo Superior](ArañaRobot/Piezas/files/body_u.stl).
 
 Se imprime 2 veces cada uno:
@@ -39,7 +39,7 @@ Se imprime 4 veces cada uno:
 #### Esquematico
 
 <p align="center">
-  <img width="600" height="500" src="ArañaRobot/EsquematicoAraña.png">
+  <img width="750" height="450" src="ArañaRobot/EsquematicoAraña.png">
 </p>
 
 ## Brazo Robot
@@ -83,7 +83,7 @@ Se imprime 2 veces cada uno:
 
 #### Esquematico
 <p align="center">
-  <img width="600" height="500" src="BrazoRobot/EsquematicoBrazo.png">
+  <img width="750" height="450" src="BrazoRobot/EsquematicoBrazo.png">
 </p>
 
 <!-- # Proyectosgit -Arduino -->
