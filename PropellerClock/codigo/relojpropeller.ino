@@ -1,6 +1,8 @@
-// fecha: //2020
-// ArduinoNanoPropellerLEDAnalogClock20190403A
-
+/*
+Reloj Propeller
+Fecha= 11/03/2020
+Autor= Brigitte Oviedo
+*/
 
 int LED1 = 2;
 int LED2 = 3;
@@ -14,10 +16,10 @@ int LED9 = 10;
 int LED10 = 11;
 int LED11 = 12;
 int LED12 = A1;
-int LED13 = A2;
-int LED14 = A3;
-int LED15 = A4;
-int LED16 = A5;
+//int LED13 = A2;
+//int LED14 = A3;
+//int LED15 = A4;
+//int LED16 = A5;
 
 int sensorPin = A0;
 
@@ -43,11 +45,11 @@ void setup()
   pinMode(LED9,OUTPUT);  
   pinMode(LED10,OUTPUT);  
   pinMode(LED11,OUTPUT);  
-  pinMode(LED12,OUTPUT);  
-  pinMode(LED13,OUTPUT);  
-  pinMode(LED14,OUTPUT);  
-  pinMode(LED15,OUTPUT);  
-  pinMode(LED16,OUTPUT);  
+  //pinMode(LED12,OUTPUT);  
+  //pinMode(LED13,OUTPUT);  
+  //pinMode(LED14,OUTPUT);  
+  //pinMode(LED15,OUTPUT);  
+  //pinMode(LED16,OUTPUT);  
   
   pinMode(sensorPin,INPUT_PULLUP);   
   
@@ -145,28 +147,31 @@ void displayClear()
   digitalWrite(LED9,LOW);
   digitalWrite(LED10,LOW);
   digitalWrite(LED11,LOW);
-  digitalWrite(LED12,LOW);
+  /*digitalWrite(LED12,LOW);
   digitalWrite(LED13,LOW);
   digitalWrite(LED14,LOW);
   digitalWrite(LED15,LOW);
-  digitalWrite(LED16,LOW);  
+  digitalWrite(LED16,LOW);  */
   }
 
   void drawMinuteMarker()
   {
-  digitalWrite(LED16,HIGH);
+  digitalWrite(LED11,HIGH);
+  //digitalWrite(LED16,HIGH);
   }
 
   void drawHourMarker()
   {
-  digitalWrite(LED15,HIGH);
-  digitalWrite(LED14,HIGH); 
+   digitalWrite(LED10,HIGH);
+  /*digitalWrite(LED15,HIGH);
+  digitalWrite(LED14,HIGH); */
   }
 
   void drawQuarterMarker()
   {
-  digitalWrite(LED13,HIGH);
-  digitalWrite(LED12,HIGH); 
+   digitalWrite(LED9,HIGH);
+  /*digitalWrite(LED13,HIGH);
+  digitalWrite(LED12,HIGH); */
   }
 
   void drawHoursHand()
@@ -176,8 +181,8 @@ void displayClear()
   digitalWrite(LED3,HIGH);
   digitalWrite(LED4,HIGH);
   digitalWrite(LED5,HIGH);
-  digitalWrite(LED6,HIGH);
-  digitalWrite(LED7,HIGH);
+  /*digitalWrite(LED6,HIGH);
+  digitalWrite(LED7,HIGH);*/
   }
 
   void drawMinutesHand()
@@ -188,9 +193,9 @@ void displayClear()
   digitalWrite(LED4,HIGH);
   digitalWrite(LED5,HIGH);
   digitalWrite(LED6,HIGH);
-  digitalWrite(LED7,HIGH);
+  /*digitalWrite(LED7,HIGH);
   digitalWrite(LED8,HIGH);
-  digitalWrite(LED9,HIGH);
+  digitalWrite(LED9,HIGH);*/
   }
 
   void drawSecondsHand()
@@ -203,9 +208,9 @@ void displayClear()
   digitalWrite(LED6,HIGH);
   digitalWrite(LED7,HIGH);
   digitalWrite(LED8,HIGH);
-  digitalWrite(LED9,HIGH);
+  /*digitalWrite(LED9,HIGH);
   digitalWrite(LED10,HIGH);
-  digitalWrite(LED11,HIGH);  
+  digitalWrite(LED11,HIGH);  */
   }  
 
   void drawInner_Circle()
