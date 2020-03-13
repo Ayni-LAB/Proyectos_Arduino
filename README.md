@@ -130,11 +130,11 @@ Se imprime 1 vez cada uno:
 -[Nariz](LagartoRobot/Piezas/nariz.stl).
 -[Sensor](LagartoRobot/Piezas/sensor_lagarto.stl).
 -[Soporte de Cola](LagartoRobot/Piezas/soporte_cola_v2.stl).
--[Union pata-cola](LagartoRobot/Piezas/union_pata_cola.stl).
 
 Se imprime 2 veces:
 
 -[Base Pata](LagartoRobot/Piezas_de_Lagarto/base_pata.stl).
+-[Union pata-cola](LagartoRobot/Piezas/union_pata_cola.stl).
 
 Se imprime 4 veces:
 
