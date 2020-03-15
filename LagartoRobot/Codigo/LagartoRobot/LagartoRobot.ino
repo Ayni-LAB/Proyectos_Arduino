@@ -11,25 +11,24 @@ Servo PatasDelanteras;
 Servo PatasTraseras; 
 Servo Cabeza; 
 
-int confAng[] = {90,90,90};//Angulo original del servo
+int array_setup[] = {90,90,90};//Set the original angle of the servo
 int angle1 = 25,angle2 = 35,angle3 = 55;
-int time1 = 10; //El tiempo necesario para rotar 1 grado del servo
+int delayedTime1 = 10;//The time needed for rotating 1 degree of the servo
 
-int ECHO = 3;  // ECHO al pin 3 de Arduino
-int TRIG = 2;  // TRIG al pin 2 de Arduino
+int ECHO = 3;  // ECHO al Arduino pin 3 de Arduino
+int TRIG = 2;  // TRIG al Arduino pin 2 de Arduino
 long duracion,distancia;
 
 void setup() {
   Serial.begin(9600);
   //Servos
-  Cabeza.attach(3);
   PatasDelanteras.attach(4);
   PatasTraseras.attach(5);
+  Cabeza.attach(3);
 
-  //Posicion inicial
-  PatasTraseras.write(confAng[0]);
-  Cabeza.write(confAng[1]);
-  PatasDelanteras.write(confAng[2]);
+  PatasTraseras.write(array_setup[0]);
+  Cabeza.write(array_setup[1]);
+  PatasDelanteras.write(array_setup[2]);
   delay(1000);
 
   //Sensor de Ultrasonido
@@ -57,12 +56,34 @@ void loop() {
     Serial.println("cm");              // Imprime al lado de la distancia los centimetros "cm"
     digitalWrite(13, 0);               // Pin 13 en bajo
     
-// Si la distancia esta en el rango de 1 a 15 el movil retrocedera y girara    
+// Si la distancia esta en el rango de 1 a 10 el movil retrocedera y girara    
   if (distancia <= 15 && distancia >= 1) 
   {
   Serial.println("Alerta.....");      // Imprime la palabra Alerta en el monitor serial
-         //Atras y girara 
-
+          
+ /* // Codigo para retroceder 
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cola.write(); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+   */                             
+  // Codigo para girar
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cabeza.write(100); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cabeza.write(80); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cabeza.write(100); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
+    PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+    Cabeza.write(80); //Se ingresa el valor de "Angulo" en Cola
+    delay(400);
   }
 
 // Si la distancia se encuentra entre 10 y 500 el movil avanzara en linea recta
@@ -70,292 +91,296 @@ void loop() {
   else{
       Serial.print(distancia);           // Imprime el valor de la distancia en el monitor serial
       Serial.println("cm");              // Imprime al lado de la distancia los centimetros "cm"
-      //avanzara
+      PatasDelanteras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+      PatasTraseras.write(); //Se ingresa el valor de "Angulo" en PatasTraseras
+      Cola.write(); //Se ingresa el valor de "Angulo" en Cola
+      delay(400);
     }
      }
 
 }
 
-void Cintura()
+void waistOne()
 {
   for(int i = 0;i < angle1;i++)
   {
-    Cabeza.write(confAng[1] + i);
-    delay(time1);
+    Cabeza.write(array_setup[1] + i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] + angle1;
+  array_setup[1] = array_setup[1] + angle1;
 }
   
-void Paso1()
+void stepOne()
 {
   for(int i = 0;i < angle2;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + angle2;
-  confAng[2] = confAng[2] - angle2;
+  array_setup[0] = array_setup[0] + angle2;
+  array_setup[2] = array_setup[2] - angle2;
 }
 
-void P1HaciaAtras()
+void backwardStepOne()
 {
   for(int i = 0;i < angle2;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - angle2;
-  confAng[2] = confAng[2] + angle2;
+  array_setup[0] = array_setup[0] - angle2;
+  array_setup[2] = array_setup[2] + angle2;
 }
-void Cintura2()
+void waistTwo()
 {
   for(int i = 0;i < 2*angle1;i++)
   {
-    Cabeza.write(confAng[1] - i);
-    delay(time1);
+    Cabeza.write(array_setup[1] - i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] - 2*angle1;
+  array_setup[1] = array_setup[1] - 2*angle1;
 }
 
-void Paso2()
+void stepTwo()
 {
   for(int i = 0;i < 2*angle2;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - 2*angle2;
-  confAng[2] = confAng[2] + 2*angle2;
+  array_setup[0] = array_setup[0] - 2*angle2;
+  array_setup[2] = array_setup[2] + 2*angle2;
 }
 
-void P2HaciaAtras()
+void backwardStepTwo()
 {
   for(int i = 0;i < 2*angle2;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + 2*angle2;
-  confAng[2] = confAng[2] - 2*angle2;
+  array_setup[0] = array_setup[0] + 2*angle2;
+  array_setup[2] = array_setup[2] - 2*angle2;
 }
-void cintura3()
+void waistThree()
 {
   for(int i = 0;i < 2*angle1;i++)
   {
-    Cabeza.write(confAng[1] + i);
-    delay(time1);
+    Cabeza.write(array_setup[1] + i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] + 2*angle1;
+  array_setup[1] = array_setup[1] + 2*angle1;
 }
 
 
-void Paso3()
+void stepThree()
 {
   for(int i = 0;i < 2*angle2;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + 2*angle2;
-  confAng[2] = confAng[2] - 2*angle2;
+  array_setup[0] = array_setup[0] + 2*angle2;
+  array_setup[2] = array_setup[2] - 2*angle2;
 }
 
-void P3HaciaAtras()
+void backwardStepThree()
 {
   for(int i = 0;i < 2*angle2;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - 2*angle2;
-  confAng[2] = confAng[2] + 2*angle2;
+  array_setup[0] = array_setup[0] - 2*angle2;
+  array_setup[2] = array_setup[2] + 2*angle2;
 }
-void CinturaAtras()
+void waistBack()
 {
   for(int i = 0;i < angle1;i++)
   {
-    Cabeza.write(confAng[1] - i);
-    delay(time1);
+    Cabeza.write(array_setup[1] - i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] - angle1;
+  array_setup[1] = array_setup[1] - angle1;
 }
 
-void PasoAtras()
+void stepBack()
 {
   for(int i = 0;i < angle2;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - angle2;
-  confAng[2] = confAng[2] + angle2;
+  array_setup[0] = array_setup[0] - angle2;
+  array_setup[2] = array_setup[2] + angle2;
 }
 
-void PAHaciaAtras()
+void backwardStepBack()
 {
   for(int i = 0;i < angle2;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + angle2;
-  confAng[2] = confAng[2] - angle2;
+  array_setup[0] = array_setup[0] + angle2;
+  array_setup[2] = array_setup[2] - angle2;
 }
-void CinturaIzq()
+void waistTurnleft()
 {
   for(int i = 0;i < angle2;i++)
   {
-    Cabeza.write(confAng[1] + i);
-    delay(time1);
+    Cabeza.write(array_setup[1] + i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] + angle2;
+  array_setup[1] = array_setup[1] + angle2;
 }
   
-void PasoIzq()
+void stepTurnleft()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + angle3;
-  confAng[2] = confAng[2] + angle3;
+  array_setup[0] = array_setup[0] + angle3;
+  array_setup[2] = array_setup[2] + angle3;
 }
 
-void CinturaIzq2()
+void waistTurnleft2()
 {
   for(int i = 0;i < angle2;i++)
   {
-    Cabeza.write(confAng[1] - i);
-    delay(time1);
+    Cabeza.write(array_setup[1] - i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] - angle2;
+  array_setup[1] = array_setup[1] - angle2;
 }
 
-void PasoIzq2()
+void stepTurnleft2()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - angle3;
+  array_setup[0] = array_setup[0] - angle3;
 }
-void AtrasIzq2()
+void turnLeftbacktwo()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[2] = confAng[2] - angle3;
+  array_setup[2] = array_setup[2] - angle3;
 }
 
-void CinturaDer()
+void waistTurnright()
 {
   for(int i = 0;i < angle2;i++)
   {
-    Cabeza.write(confAng[1] - i);
-    delay(time1);
+    Cabeza.write(array_setup[1] - i);
+    delay(delayedTime1);
   }
-  confAng[1] = confAng[1] - angle2;
+  array_setup[1] = array_setup[1] - angle2;
 }
   
-void PasoDer()
+void stepTurnright()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasTraseras.write(confAng[0] - i);
-    PatasDelanteras.write(confAng[2] - i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] - i);
+    PatasDelanteras.write(array_setup[2] - i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] - angle3;
-  confAng[2] = confAng[2] - angle3;
+  array_setup[0] = array_setup[0] - angle3;
+  array_setup[2] = array_setup[2] - angle3;
 }
 
-void CinturaDer2()
+void waistTurnright2()
 {
   for(int i = 0;i < angle2;i++)
   {
-    Cabeza.write(confAng[1] + i);
-    delay(time1);
+    Cabeza.write(array_setup[1] + i);
+    delay(delayedTime1);
 }
-confAng[1] = confAng[1] + angle2;
+array_setup[1] = array_setup[1] + angle2;
 }
 
-void PasoDer2()
+void stepTurnright2()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasTraseras.write(confAng[0] + i);
-    delay(time1);
+    PatasTraseras.write(array_setup[0] + i);
+    delay(delayedTime1);
   }
-  confAng[0] = confAng[0] + angle3;
+  array_setup[0] = array_setup[0] + angle3;
 }
 
-void AtrasDer2()
+void turnRightbacktwo()
 {
   for(int i = 0;i < angle3;i++)
   {
-    PatasDelanteras.write(confAng[2] + i);
-    delay(time1);
+    PatasDelanteras.write(array_setup[2] + i);
+    delay(delayedTime1);
   }
-  confAng[2] = confAng[2] + angle3;
+  array_setup[2] = array_setup[2] + angle3;
 }
+
 
 void keyTwo()
 {
-  Cintura();
-  Paso1();
-  Cintura2();
-  Paso2();
-  cintura3();
-  Paso3();
-  CinturaAtras();
-  PasoAtras();
+  waistOne();
+  stepOne();
+  waistTwo();
+  stepTwo();
+  waistThree();
+  stepThree();
+  waistBack();
+  stepBack();
 }
 
 void keyADD() //atras izquierda
 {
-  Cintura();
-  Paso1();
+  waistOne();
+  stepOne();
   for(int c = 0; c < 4; c++)
   {
-    Cintura2();
-    Paso2();
-    cintura3();
-    Paso3();
+    waistTwo();
+    stepTwo();
+    waistThree();
+    stepThree();
   }
-  CinturaAtras();
-  PasoAtras();
-  time1 = 16;
+  waistBack();
+  stepBack();
+  delayedTime1 = 16;
 }
 
 void PosicionInicial()
 {
-  PatasTraseras.write(confAng[0]);
-  Cabeza.write(confAng[1]);
-  PatasDelanteras.write(confAng[2]);
+  PatasTraseras.write(array_setup[0]);
+  Cabeza.write(array_setup[1]);
+  PatasDelanteras.write(array_setup[2]);
 }
 
 void keyFour() //derecha
 {
    for(int a = 0;a < 2;a++)
    {
-     CinturaIzq();
-     PasoIzq();
-     CinturaIzq2();
-     PasoIzq2();
-     AtrasIzq2();
+     waistTurnleft();
+     stepTurnleft();
+     waistTurnleft2();
+     stepTurnleft2();
+     turnLeftbacktwo();
    }
 }
 
@@ -363,39 +388,40 @@ void keySix() //izquierda
 {
   for(int a = 0;a < 2;a++)
   {
-    CinturaDer();
-    PasoDer();
-    CinturaDer2();
-    PasoDer2();
-    AtrasDer2();
+    waistTurnright();
+    stepTurnright();
+    waistTurnright2();
+    stepTurnright2();
+    turnRightbacktwo();
   }
 }
 
 void keyEight() //adelante
 {
-  Cintura();
-  P1HaciaAtras();
-  Cintura2();
-  P2HaciaAtras();
-  cintura3();
-  P3HaciaAtras();
-  CinturaAtras();
-  PAHaciaAtras();
+  waistOne();
+  backwardStepOne();
+  waistTwo();
+  backwardStepTwo();
+  waistThree();
+  backwardStepThree();
+  waistBack();
+  backwardStepBack();
 }
   
 void keySUB() //adelante
 {
-  time1 = 8;
-  Cintura();
-  P1HaciaAtras();
+  delayedTime1 = 8;
+  waistOne();
+  backwardStepOne();
   for(int c = 0; c < 3; c++)
   {
-    Cintura2();
-    P2HaciaAtras();
-    cintura3();
-    P3HaciaAtras();
+    waistTwo();
+    backwardStepTwo();
+    waistThree();
+    backwardStepThree();
   }
-  CinturaAtras();
-  PAHaciaAtras();
-  time1 = 16;
+  waistBack();
+  backwardStepBack();
+  delayedTime1 = 16;
+
 }
